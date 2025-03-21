@@ -1,12 +1,15 @@
-# NextJS
+# nextjs
 node_modules
 .next
 
-# Git
+# git
 README.md
 .git
 .gitignore
 
-# Docker
+# docker
 Dockerfile
 .dockerignore
+
+# environment
+.env

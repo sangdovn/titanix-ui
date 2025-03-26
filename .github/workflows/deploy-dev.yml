@@ -4,9 +4,9 @@ on:
   push:
     branches:
       - develop
-  pull_request:
-    branches:
-      - develop
+  # pull_request:
+  #   branches:
+  #     - develop
   workflow_dispatch:
 
 env:
@@ -55,7 +55,7 @@ jobs:
           host: ${{ secrets.SERVER_HOST }}
           username: ${{ secrets.SERVER_USERNAME }}
           key: ${{ secrets.SERVER_SSH_KEY }}
-          source: 'docker-compose-dev.yml'
+          source: "docker-compose-dev.yml"
           target: /home/${{ secrets.SERVER_USERNAME }}/${{ vars.APP_NAME }}
 
       - name: SSH to server and deploy
@@ -67,6 +67,7 @@ jobs:
           script: |
             export IMAGE_NAME="${{ secrets.DOCKERHUB_USERNAME }}/${{ vars.APP_NAME }}:${{ vars.APP_VERSION_DEV }}-dev"
             export CONTAINER_NAME="${{ vars.APP_NAME }}-dev"
+            export OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }}
 
             cd /home/${{ secrets.SERVER_USERNAME }}/${{ vars.APP_NAME }}
             docker compose down

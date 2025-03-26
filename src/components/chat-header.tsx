@@ -1,18 +1,17 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import ModelSelector from "./model-selector";
-import { SidebarTrigger, useSidebar } from "./ui/sidebar";
+import { ModeToggle } from "@/components/mode-toggle";
+import ModelSelector from "@/components/model-selector";
+import { SidebarToggle } from "@/components/sidebar-toggle";
 
-export default function ChatHeader() {
-  const { toggleSidebar } = useSidebar();
-
+export function ChatHeader() {
   return (
-    <header className="bg-background sticky top-0 flex items-center gap-2 px-2 py-1.5">
-      <Button variant="outline" size="icon" onClick={toggleSidebar}>
-        <SidebarTrigger />
-      </Button>
-      <ModelSelector />
+    <header className="sticky top-0 flex flex-row items-center justify-between p-2">
+      <div className="flex flex-row items-center justify-between gap-2">
+        <SidebarToggle />
+        <ModelSelector />
+      </div>
+      <ModeToggle />
     </header>
   );
 }

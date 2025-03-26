@@ -2,5 +2,7 @@ services:
   ui:
     container_name: ${CONTAINER_NAME}
     image: ${IMAGE_NAME}
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
     ports:
       - 3000:3000

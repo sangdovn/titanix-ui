@@ -1,8 +1,8 @@
 "use client";
 
-import { ModeToggle } from "./mode-toggle";
-import ModelSelector from "./model-selector";
-import { SidebarToggle } from "./sidebar-toggle";
+import { ModeToggle } from "@/components/mode-toggle";
+import ModelSelector from "@/components/model-selector";
+import { SidebarToggle } from "@/components/sidebar-toggle";
 
 export function ChatHeader() {
   return (

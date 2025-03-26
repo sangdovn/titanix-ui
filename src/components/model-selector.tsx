@@ -11,19 +11,23 @@ import { chatModels } from "@/lib/ai/models";
 import { setServerPreferences } from "@/lib/server/cookies";
 import { usePreferencesStore } from "@/lib/stores/preferences-store";
 import { ChevronDown, CircleCheck } from "lucide-react";
-import { useMemo } from "react";
+import { startTransition, useMemo, useOptimistic } from "react";
 
 export default function ModelSelector() {
   const { chatModelId, setChatModelId } = usePreferencesStore();
+  const [optimisticModelId, setOptimisticModelId] = useOptimistic(chatModelId);
 
   const selectedChatModel = useMemo(
-    () => chatModels.find((chatModel) => chatModel.id === chatModelId),
-    [chatModelId]
+    () => chatModels.find((chatModel) => chatModel.id === optimisticModelId),
+    [optimisticModelId]
   );
 
-  const changeChatModel = async (modelId: string) => {
-    setChatModelId(modelId);
-    await setServerPreferences({ chatModelId: modelId });
+  const changeChatModel = (id: string) => {
+    startTransition(() => {
+      setOptimisticModelId(id);
+      setChatModelId(id);
+      setServerPreferences({ chatModelId: id });
+    });
   };
 
   return (
@@ -41,7 +45,7 @@ export default function ModelSelector() {
             <DropdownMenuItem
               key={id}
               onSelect={() => changeChatModel(id)}
-              data-active={id === chatModelId}
+              data-active={id === optimisticModelId}
               asChild
             >
               <button

@@ -16,7 +16,7 @@ export function PreferencesProvider({
   useEffect(() => {
     setChatModelId(chatModelId);
     setTheme(theme);
-  }, [, setChatModelId, setTheme]);
+  }, [setChatModelId, setTheme]);
 
   return <>{children}</>;
 }

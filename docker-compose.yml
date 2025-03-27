@@ -1,6 +1,0 @@
-services:
-  ui:
-    container_name: ${CONTAINER_NAME}
-    image: ${IMAGE_NAME}
-    ports:
-      - 3000:3000

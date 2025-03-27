@@ -40,10 +40,12 @@ jobs:
           key: ${{ secrets.SERVER_SSH_KEY }}
           script: |
             export IMAGE_NAME=${{ secrets.IMAGE_NAME }}
+            export CONTAINER_NAME=${{ vars.APP_NAME }}
 
             cd /home/${{ secrets.SERVER_USERNAME }}/${{ vars.APP_NAME }}
             docker compose down
-            docker system prune -af
+            docker rm ${{ vars.APP_NAME }}
+            docker rmi ${{ secrets.IMAGE_NAME }}
             docker compose pull
             docker compose up -d 
             docker image prune -f

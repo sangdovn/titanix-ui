@@ -19,7 +19,7 @@ function PureMessages({
   return (
     <div
       ref={containerRef}
-      className="flex min-w-0 grow flex-col gap-6 overflow-x-hidden overflow-y-scroll pt-4"
+      className="flex min-w-0 grow flex-col gap-6 overflow-x-hidden overflow-y-auto pt-4"
       style={{ scrollbarWidth: "thin" }}
     >
       {messages.map((msg, index) => (

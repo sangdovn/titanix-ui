@@ -1,0 +1,7 @@
+services:
+  titanix-ui:
+    env_file:
+      - .env
+    image: ${IMAGE_NAME}
+    ports:
+      - 3000:3000

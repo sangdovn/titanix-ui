@@ -47,5 +47,4 @@ jobs:
             docker rm ${{ vars.APP_NAME }}
             docker rmi ${{ secrets.IMAGE_NAME }}
             docker compose pull
-            docker compose up -d 
-            docker image prune -f
+            docker compose up -d

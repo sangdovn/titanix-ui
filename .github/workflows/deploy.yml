@@ -39,7 +39,7 @@ jobs:
           username: ${{ secrets.SERVER_USERNAME }}
           key: ${{ secrets.SERVER_SSH_KEY }}
           script: |
-            export IMAGE_NAME=${{ secrets.IMAGE_NAME }}
+            export IMAGE_NAME=${{ secrets.secrets.DOCKERHUB_USERNAME }}/${{ vars.APP_NAME }}
             export CONTAINER_NAME=${{ vars.APP_NAME }}
 
             cd /home/${{ secrets.SERVER_USERNAME }}/${{ vars.APP_NAME }}

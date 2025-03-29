@@ -1,5 +1,5 @@
-@import "tailwindcss";
-@import "tw-animate-css";
+@import 'tailwindcss';
+@import 'tw-animate-css';
 
 @custom-variant dark (&:is(.dark *));
 
@@ -119,4 +119,17 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+.custom-scrollbar {
+  scrollbar-width: thin;
+}
+
+.custom-textarea,
+.custom-textarea:focus,
+.custom-textarea:focus-visible {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  /* ring: none !important; */
 }

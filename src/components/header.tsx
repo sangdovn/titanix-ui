@@ -1,3 +1,5 @@
+'use client'
+
 import { SidebarToggle } from './sidebar-toggle'
 import { ThemeToggle } from './theme-toggle'
 

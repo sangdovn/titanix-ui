@@ -1,4 +1,4 @@
-import { RootLayout } from '@/components/layout'
+import { RootLayout } from '@/components/layouts'
 import type { Metadata } from 'next'
 import './globals.css'
 

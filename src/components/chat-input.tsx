@@ -24,7 +24,14 @@ export const ChatInput = ({
 
   useEffect(() => {
     adjustHeight()
+    focus()
   }, [input])
+
+  const focus = () => {
+    if (textareaRef.current) {
+      textareaRef.current.focus()
+    }
+  }
 
   const adjustHeight = () => {
     if (textareaRef.current) {
@@ -43,11 +50,12 @@ export const ChatInput = ({
   const submitForm = (e: React.FormEvent | React.KeyboardEvent) => {
     handleSubmit(e)
     resetHeight()
+    focus()
   }
 
   return (
     <form className="w-full pb-4 md:pb-6" onSubmit={submitForm}>
-      <div className="bg-muted mx-auto flex max-w-3xl flex-col gap-2 rounded-3xl p-2">
+      <div className="bg-muted mx-auto flex max-w-3xl flex-col rounded-3xl p-2">
         <Textarea
           ref={textareaRef}
           className="custom-textarea custom-scrollbar max-h-[calc(50dvh)] min-h-0 resize-none overflow-x-hidden overflow-y-auto !text-base"

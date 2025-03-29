@@ -1,3 +1,4 @@
+import { RootLayout } from '@/components/layout'
 import type { Metadata } from 'next'
 import './globals.css'
 
@@ -6,7 +7,7 @@ export const metadata: Metadata = {
   description: 'The ultimate tool for your productivity',
 }
 
-export default function RootLayout({
+export default function Layout({
   children,
 }: Readonly<{
   children: React.ReactNode
@@ -16,7 +17,9 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="favicon.ico" type="image/x-icon" />
       </head>
-      <body>{children}</body>
+      <body>
+        <RootLayout>{children}</RootLayout>
+      </body>
     </html>
   )
 }

@@ -15,6 +15,10 @@ const projects = [
     name: 'Chatbot',
     url: '/chat',
   },
+  {
+    name: 'News',
+    url: '/news',
+  },
 ]
 
 export const NavProjects = () => {

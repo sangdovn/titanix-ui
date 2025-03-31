@@ -19,6 +19,14 @@ const projects = [
     name: 'News',
     url: '/news',
   },
+  {
+    name: 'Login',
+    url: '/login',
+  },
+  {
+    name: 'Register',
+    url: '/register',
+  },
 ]
 
 export const NavProjects = () => {

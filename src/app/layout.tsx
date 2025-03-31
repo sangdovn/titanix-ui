@@ -15,7 +15,7 @@ export default function Layout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <link rel="icon" href="favicon.ico" type="image/x-icon" />
+        <link rel="icon" href="/favicon.ico" type="image/gif" />
       </head>
       <body>
         <RootLayout>{children}</RootLayout>

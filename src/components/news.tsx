@@ -1,6 +1,7 @@
 'use client'
 
 import { fetchTop10Stories } from '@/app/news/actions'
+import { Story } from '@/app/news/types'
 import { Loader2 } from 'lucide-react'
 import Link from 'next/link'
 import useSWR from 'swr'

@@ -1,4 +1,4 @@
-interface Story {
+export interface Story {
   id: number
   deleted: boolean
   type: 'job' | 'story' | 'comment' | 'poll' | 'pollopt'

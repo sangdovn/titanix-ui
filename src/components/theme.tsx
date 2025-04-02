@@ -1,7 +1,5 @@
-'use client'
-
-import { Moon, Sun } from 'lucide-react'
-import { useTheme } from 'next-themes'
+import React from 'react'
+import { ThemeProvider as NextThemesProvider, useTheme } from 'next-themes'
 import { Button } from './ui/button'
 import {
   DropdownMenu,
@@ -9,8 +7,13 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from './ui/dropdown-menu'
+import { Moon, Sun } from 'lucide-react'
 
-export const ThemeToggle = () => {
+function ThemeProvider({ children, ...props }: React.ComponentProps<typeof NextThemesProvider>) {
+  return <NextThemesProvider {...props}>{children}</NextThemesProvider>
+}
+
+function ThemeToggle() {
   const { setTheme } = useTheme()
 
   return (
@@ -30,3 +33,5 @@ export const ThemeToggle = () => {
     </DropdownMenu>
   )
 }
+
+export { ThemeProvider, ThemeToggle }

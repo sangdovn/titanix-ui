@@ -1,6 +1,6 @@
-import { RootLayout } from '@/components/layouts'
 import type { Metadata } from 'next'
 import './globals.css'
+import { ThemeProvider } from '@/components/theme'
 
 export const metadata: Metadata = {
   title: 'Titanix',
@@ -18,7 +18,14 @@ export default function Layout({
         <link rel="icon" href="/favicon.ico" type="image/gif" />
       </head>
       <body>
-        <RootLayout>{children}</RootLayout>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   )
